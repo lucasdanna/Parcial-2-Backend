@@ -22,6 +22,6 @@ public class PedidosController : ControllerBase
     public async Task<ActionResult<int>> Crear([FromBody] CrearPedidoCommand command)
     {
         var id = await _mediator.Send(command);
-        return Created($"/api/pedidos/{id}", id);
+        return Created($"/api/pedidos/{id}", new { mensaje = "Pedido realizado correctamente", pedidoId = id });
     }
 }
